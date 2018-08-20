@@ -36,8 +36,10 @@ export default class SearchMenu extends Component {
                 <div className="searchCriteria">
                     <ul>
                         <input type="text" name="Name" id="" />
+                        <form>
                         <select name="Région" id=""></select>
                         <select name="Expertise" id=""></select>
+                        </form>
                         <button>Reinitialiser</button>
                     </ul>
                 </div>
