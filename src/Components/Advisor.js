@@ -1,5 +1,5 @@
 import React from "react";
-const Member = props => (
+const Advisor = (props) => (
   <div>
     <h2>{props.name}</h2>
     <p>{props.title}</p>
@@ -9,4 +9,4 @@ const Member = props => (
   </div>
 );
 
-export default Member;
+export default Advisor;
