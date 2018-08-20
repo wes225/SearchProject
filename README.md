@@ -1,2 +1,0 @@
-# SearchProject
-Created with CodeSandbox
