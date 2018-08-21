@@ -9,14 +9,16 @@ export default class SearchMenu extends Component {
         this.state = {
             advisorSelected: false,
             searchBarContent: "",
-            myData: props
+            myData: []
 
         }
         this.handleRadioChange = this.handleRadioChange.bind(this);
     }
 
     componentWillMount(){
-        console.log(jsonData);
+        jsonData.map(element =>{
+            this.setState({myData: [this.state.myData,element.team]})
+        });
     }
     handleRadioChange(event) {
         if (event.target.value == "team") {
@@ -25,7 +27,7 @@ export default class SearchMenu extends Component {
         console.log(event.target.value);
     }
     render() {
-        const Header = () => this.state.advisorSelected ? <AdvisorResults /> : <TeamResults />;
+        const Header = (props) => this.state.advisorSelected ? <AdvisorResults {...props} /> : <TeamResults {...props} />;
         return (
             <div>
                 <h2>Trouver un conseiller</h2>
@@ -65,7 +67,7 @@ export default class SearchMenu extends Component {
                         <button>Reinitialiser</button>
                     </ul>
                 </div>
-                <Header />
+                <Header {...this.state.myData}/>
             </div>
 
         )
