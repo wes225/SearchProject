@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TeamResults from '../Components/TeamResults'
 import AdvisorResults from '../Components/AdvisorResults'
+import jsonData from '../../src/data.json'
 
 export default class SearchMenu extends Component {
     constructor(props) {
@@ -12,6 +13,10 @@ export default class SearchMenu extends Component {
 
         }
         this.handleRadioChange = this.handleRadioChange.bind(this);
+    }
+
+    componentWillMount(){
+        console.log(jsonData);
     }
     handleRadioChange(event) {
         if (event.target.value == "team") {
