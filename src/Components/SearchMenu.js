@@ -18,21 +18,23 @@ export default class SearchMenu extends Component {
             <div>
                 <h2>Trouver un conseiller</h2>
                 <div className="searchType">
-                    <ul>
+                    <form>
+
+
                     <label>
               Par équipe
-              <input type="radio" name="team" value="team" id="searchByTeam" />
+              <input type="radio" name="searchBy" value="team" id="searchByTeam" checked={true} />
             </label>
             <label>
               Par conseiller
               <input
                 type="radio"
-                name="advisor"
+                name="searchBy"
                 value="advisor"
                 id="searchByAdvisor"
               />
-            </label></ul>
-                </div>
+            </label>
+              </form>  </div>
                 <div className="searchCriteria">
                     <ul>
                         <input type="text" name="Name" id="" />
