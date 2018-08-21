@@ -16,8 +16,14 @@ export default class SearchMenu extends Component {
     }
 
     componentWillMount(){
-        jsonData.map(element =>{
-            this.setState({myData: [this.state.myData,element.team]})
+        let data = [];
+        console.log(jsonData[0].team.id);
+
+        jsonData.map((element,index) =>{
+            data = [...data,element.team];
+            if (index === jsonData.length){
+                this.setState({myData:data})
+            }
         });
     }
     handleRadioChange(event) {
