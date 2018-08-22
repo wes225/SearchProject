@@ -5,7 +5,7 @@ const Advisor = (props) => (
     <p>{props.title}</p>
     <a>{props.email}</a>
     <p>{props.phoneNumber}</p>
-    <a>{props.linkedin}</a>
+    <a href={props.linkedin}>Linkedin</a>
   </div>
 );
 

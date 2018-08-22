@@ -17,11 +17,9 @@ export default class SearchMenu extends Component {
 
     componentWillMount(){
         let data = [];
-        console.log(jsonData[0].team.id);
-
         jsonData.map((element,index) =>{
             data = [...data,element.team];
-            if (index === jsonData.length){
+            if (index === (jsonData.length-1)){
                 this.setState({myData:data})
             }
         });
@@ -30,7 +28,6 @@ export default class SearchMenu extends Component {
         if (event.target.value == "team") {
             this.setState({ advisorSelected: false })
         } else { this.setState({ advisorSelected: true }) }
-        console.log(event.target.value);
     }
     render() {
         const Header = (props) => this.state.advisorSelected ? <AdvisorResults {...props} /> : <TeamResults {...props} />;
@@ -73,7 +70,7 @@ export default class SearchMenu extends Component {
                         <button>Reinitialiser</button>
                     </ul>
                 </div>
-                <Header {...this.state.myData}/>
+                <Header data={this.state.myData}/>
             </div>
 
         )
