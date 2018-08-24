@@ -24,7 +24,7 @@ export default class SearchMenu extends Component {
             data = [...data,element.team];
             if (index === (jsonData.length-1)){
                 this.setState({myData:data}, ()=> 
-            this.setState({mySearchResults: this.getAdvisorsFromData(myData)}))
+            this.setState({mySearchResults: this.getAdvisorsFromData(this.state.myData)}))
             }
         });
     }
@@ -43,7 +43,7 @@ export default class SearchMenu extends Component {
         let searchResult = [];
 
         if(this.state.advisorSelected){
-            getAdvisorsFromData(this.state.myData).map(member =>{
+            this.getAdvisorsFromData(this.state.myData).map(member =>{
                 if (member.name.toLowerCase().includes(searchText.toLowerCase())){
                     searchResult = [...searchResult, member];
                 }
