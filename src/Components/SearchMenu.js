@@ -9,10 +9,13 @@ export default class SearchMenu extends Component {
         this.state = {
             advisorSelected: false,
             searchBarContent: "",
-            myData: []
+            myData: [],
+            mySearchResults:[]
 
         }
         this.handleRadioChange = this.handleRadioChange.bind(this);
+        this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
+        this.getAdvisorsFromData = this.getAdvisorsFromData.bind(this);
     }
 
     componentWillMount(){
@@ -20,9 +23,35 @@ export default class SearchMenu extends Component {
         jsonData.map((element,index) =>{
             data = [...data,element.team];
             if (index === (jsonData.length-1)){
-                this.setState({myData:data})
+                this.setState({myData:data}, ()=> 
+            this.setState({mySearchResults: this.getAdvisorsFromData(myData)}))
             }
         });
+    }
+
+    getAdvisorsFromData(allTeams){
+        let allAdvisors = [];
+        allTeams.map(element=>{
+                element.members.map(member =>{
+                        allAdvisors = [...allAdvisors, member];
+                })
+        })
+        return allAdvisors;
+    }
+    handleSearchTextChange(event){
+        let searchText = event.target.value;
+        let searchResult = [];
+
+        if(this.state.advisorSelected){
+            getAdvisorsFromData(this.state.myData).map(member =>{
+                if (member.name.toLowerCase().includes(searchText.toLowerCase())){
+                    searchResult = [...searchResult, member];
+                }
+            })
+        }
+        this.setState({
+            mySearchResults:searchResult
+        })
     }
     handleRadioChange(event) {
         if (event.target.value == "team") {
@@ -62,7 +91,7 @@ export default class SearchMenu extends Component {
                     </form>  </div>
                 <div className="searchCriteria">
                     <ul>
-                        <input type="text" name="Name" id="" />
+                        <input type="text" name="Name" id="" onChange={this.handleSearchTextChange} />
                         <form>
                             <select name="Région" id=""></select>
                             <select name="Expertise" id=""></select>
@@ -70,7 +99,7 @@ export default class SearchMenu extends Component {
                         <button>Reinitialiser</button>
                     </ul>
                 </div>
-                <Header data={this.state.myData}/>
+                <Header data={this.state.mySearchResults}/>
             </div>
 
         )

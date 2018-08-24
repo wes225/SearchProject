@@ -4,24 +4,21 @@ export default class AdvisorResults extends Component {
   constructor(props) {
     super(props);
     this.state ={
-      allAdvisors: []
+      allAdvisors: this.props.data
     }
   }
   componentWillMount() {
-    let allAdvisors = [];
-    this.props.data.map(element => {
-      element.members.map(advisor => {
-        allAdvisors = [...allAdvisors, advisor];
-      })
+    // let advisors = [];
+    // this.props.data.map(element => {
+    //   element.members.map(advisor => {
+    //     allAdvisors = [...allAdvisors, advisor];
+    //   })
       
-    })
-    this.setState({allAdvisors: allAdvisors})
+    // })
+    // this.setState({allAdvisors: allAdvisors})
   }
   render() {
-    console.log(this.state.allAdvisors[0])
-    
-
-
+  
     return (
       this.state.allAdvisors.map(advisor => 
         <Advisor key={advisor.id} {...advisor}/>
