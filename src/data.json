@@ -2,10 +2,11 @@
     {
         "team": {
             "id": "001",
+            "name":"Green Team",
             "teamLink": "",
             "region": "Montreal",
             "members":[ {
-                "isLead": false,
+                "isLead": true,
                 "id": 101,
                 "name": "John Smith",
                 "title": "Frontend developer",
@@ -41,10 +42,11 @@
     {
         "team": {
             "id": "002",
+            "name":"Blue Team",
             "teamLink": "",
             "region": "Lasalle",
             "members":[ {
-                "isLead": false,
+                "isLead": true,
                 "id": 104,
                 "name": "Michael Smith",
                 "title": "Mobile Developer",
@@ -59,10 +61,11 @@
     {
         "team": {
             "id": "003",
+            "name":"Red team",
             "teamLink": "",
             "region": "Levis",
             "members": [{
-                "isLead": false,
+                "isLead": true,
                 "id": 105,
                 "name": "Mathew Smith",
                 "title": "QA Developer",

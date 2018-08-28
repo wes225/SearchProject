@@ -7,7 +7,7 @@ export default class SearchMenu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            advisorSelected: false,
+            advisorSelected: true,
             searchBarContent: "",
             myData: [],
             mySearchResults: []
@@ -16,6 +16,7 @@ export default class SearchMenu extends Component {
         this.handleRadioChange = this.handleRadioChange.bind(this);
         this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
         this.getAdvisorsFromData = this.getAdvisorsFromData.bind(this);
+        this.getTeamsFromData = this.getTeamsFromData.bind(this);
     }
 
     componentWillMount() {
@@ -24,11 +25,20 @@ export default class SearchMenu extends Component {
             data = [...data, element.team];
             if (index === (jsonData.length - 1)) {
                 this.setState({ myData: data }, () =>
-                    this.setState({ mySearchResults: this.getAdvisorsFromData(this.state.myData) }))
+                    this.state.advisorSelected ? this.setState({ mySearchResults: this.getAdvisorsFromData(this.state.myData) }) : this.setState({ mySearchResults: this.getTeamsFromData(this.state.myData) })
+                )
             }
         });
     }
 
+    getTeamsFromData(data) {
+        let allTeams = [];
+        data.map(team => {
+            allTeams = [...allTeams, team];
+
+        })
+        return allTeams;
+    }
     getAdvisorsFromData(allTeams) {
         let allAdvisors = [];
         allTeams.map(element => {
@@ -54,7 +64,7 @@ export default class SearchMenu extends Component {
             this.state.myData.map(team => {
                 team.members.map(member => {
                     if (member.name.toLowerCase().includes(searchText.toLowerCase())) {
-                        if (!searchResult.includes(team)){
+                        if (member.isLead) {
                             searchResult = [...searchResult, team];
                         }
                     }
@@ -67,7 +77,7 @@ export default class SearchMenu extends Component {
     }
     handleRadioChange(event) {
         if (event.target.value == "team") {
-            this.setState({ advisorSelected: false })
+            this.setState({ advisorSelected: false, mySearchResults: this.getTeamsFromData(this.state.myData) })
         } else { this.setState({ advisorSelected: true }) }
     }
     render() {
