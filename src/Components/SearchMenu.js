@@ -10,7 +10,7 @@ export default class SearchMenu extends Component {
             advisorSelected: false,
             searchBarContent: "",
             myData: [],
-            mySearchResults:[]
+            mySearchResults: []
 
         }
         this.handleRadioChange = this.handleRadioChange.bind(this);
@@ -18,39 +18,39 @@ export default class SearchMenu extends Component {
         this.getAdvisorsFromData = this.getAdvisorsFromData.bind(this);
     }
 
-    componentWillMount(){
+    componentWillMount() {
         let data = [];
-        jsonData.map((element,index) =>{
-            data = [...data,element.team];
-            if (index === (jsonData.length-1)){
-                this.setState({myData:data}, ()=> 
-            this.setState({mySearchResults: this.getAdvisorsFromData(this.state.myData)}))
+        jsonData.map((element, index) => {
+            data = [...data, element.team];
+            if (index === (jsonData.length - 1)) {
+                this.setState({ myData: data }, () =>
+                    this.setState({ mySearchResults: this.getAdvisorsFromData(this.state.myData) }))
             }
         });
     }
 
-    getAdvisorsFromData(allTeams){
+    getAdvisorsFromData(allTeams) {
         let allAdvisors = [];
-        allTeams.map(element=>{
-                element.members.map(member =>{
-                        allAdvisors = [...allAdvisors, member];
-                })
+        allTeams.map(element => {
+            element.members.map(member => {
+                allAdvisors = [...allAdvisors, member];
+            })
         })
         return allAdvisors;
     }
-    handleSearchTextChange(event){
+    handleSearchTextChange(event) {
         let searchText = event.target.value;
         let searchResult = [];
 
-        if(this.state.advisorSelected){
-            this.getAdvisorsFromData(this.state.myData).map(member =>{
-                if (member.name.toLowerCase().includes(searchText.toLowerCase())){
+        if (this.state.advisorSelected) {
+            this.getAdvisorsFromData(this.state.myData).map(member => {
+                if (member.name.toLowerCase().includes(searchText.toLowerCase())) {
                     searchResult = [...searchResult, member];
                 }
             })
         }
         this.setState({
-            mySearchResults:searchResult
+            mySearchResults: searchResult
         })
     }
     handleRadioChange(event) {
@@ -99,7 +99,7 @@ export default class SearchMenu extends Component {
                         <button>Reinitialiser</button>
                     </ul>
                 </div>
-                <Header data={this.state.mySearchResults}/>
+                <Header data={this.state.mySearchResults} />
             </div>
 
         )
