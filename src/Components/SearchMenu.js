@@ -38,15 +38,27 @@ export default class SearchMenu extends Component {
         })
         return allAdvisors;
     }
+
+
+
     handleSearchTextChange(event) {
         let searchText = event.target.value;
         let searchResult = [];
-
         if (this.state.advisorSelected) {
             this.getAdvisorsFromData(this.state.myData).map(member => {
                 if (member.name.toLowerCase().includes(searchText.toLowerCase())) {
                     searchResult = [...searchResult, member];
                 }
+            })
+        } else {
+            this.state.myData.map(team => {
+                team.members.map(member => {
+                    if (member.name.toLowerCase().includes(searchText.toLowerCase())) {
+                        if (!searchResult.includes(team)){
+                            searchResult = [...searchResult, team];
+                        }
+                    }
+                })
             })
         }
         this.setState({
