@@ -1,6 +1,7 @@
 import React from "react";
+import '../Components/AdvisorResults.css'
 const Advisor = (props) => (
-  <div>
+  <div className="advisor">
     <h2>{props.name}</h2>
     <p>{props.title}</p>
     <a>{props.email}</a>

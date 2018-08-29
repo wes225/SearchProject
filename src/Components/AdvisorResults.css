@@ -1,7 +1,11 @@
-.test{
-    background-color: brown
-}
-.test:hover{
-    border: 3px;
-    border-color: brown
-}
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+  }
+  
+  .advisor {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    background-color:green;
+  }
+  
