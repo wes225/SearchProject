@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Advisor from '../Components/Advisor'
+import '../Components/AdvisorResults.css'
+
 export default class AdvisorResults extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ export default class AdvisorResults extends Component {
   
     return (
       this.state.allAdvisors.map(advisor => 
-        <Advisor key={advisor.id} {...advisor}/>
+        <Advisor key={advisor.id} {...advisor} className={"test"}/>
         )
     )
   }
