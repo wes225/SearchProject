@@ -78,7 +78,7 @@ export default class SearchMenu extends Component {
     handleRadioChange(event) {
         if (event.target.value == "team") {
             this.setState({ advisorSelected: false, mySearchResults: this.getTeamsFromData(this.state.myData) })
-        } else { this.setState({ advisorSelected: true }) }
+        } else { this.setState({ advisorSelected: true, mySearchResults: this.getAdvisorsFromData(this.state.myData) }) }
     }
     render() {
         const Header = (props) => this.state.advisorSelected ? <AdvisorResults {...props} /> : <TeamResults {...props} />;

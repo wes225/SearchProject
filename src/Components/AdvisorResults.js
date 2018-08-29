@@ -22,9 +22,10 @@ export default class AdvisorResults extends Component {
   render() {
   
     return (
-      this.state.allAdvisors.map(advisor => 
-        <Advisor key={advisor.id} {...advisor} className={"test"}/>
-        )
+      <div className="test">{this.state.allAdvisors.map(advisor => 
+        <Advisor key={advisor.id} {...advisor} className="test"/>
+        )}</div>
+      
     )
   }
 }
