@@ -1,0 +1,14 @@
+.header{
+    display:grid;
+    grid-template-areas: "title title" "check check"  "search"
+}
+.title{
+grid-area: title;
+}
+.checkboxForm{
+grid-area: check;
+}
+
+.searchCriteria{
+grid-area: search
+}

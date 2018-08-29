@@ -6,6 +6,7 @@
   
   .advisor {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-    background-color:green;
+    background-color:rgb(171, 236, 171);
+    padding-bottom: 15px;
   }
   

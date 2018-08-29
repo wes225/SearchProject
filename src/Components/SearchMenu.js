@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TeamResults from '../Components/TeamResults'
 import AdvisorResults from '../Components/AdvisorResults'
 import jsonData from '../../src/data.json'
-
+import '../Components/SearchMenu.css'
 export default class SearchMenu extends Component {
     constructor(props) {
         super(props);
@@ -115,8 +115,12 @@ export default class SearchMenu extends Component {
                     <ul>
                         <input type="text" name="Name" id="" onChange={this.handleSearchTextChange} />
                         <form>
-                            <select name="Région" id=""></select>
-                            <select name="Expertise" id=""></select>
+                            <select name="Région" id="">
+                            <option value="qc">Quebec</option>
+                            </select>
+                            <select name="Expertise" id="">
+                            <option value="javascript">Javascript</option>
+                            </select>
                         </form>
                         <button>Reinitialiser</button>
                     </ul>
