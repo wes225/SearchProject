@@ -1,0 +1,30 @@
+.header {
+    display: grid;
+    justify-content: center;
+    grid-template-areas: "titl" "check" "search";
+    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+    padding-bottom: 20px;
+  }
+  .title {
+    grid-area: titl;
+  }
+  .checkboxForm {
+    grid-area: check;
+  }
+  
+  .searchCriteria {
+    grid-area: search;
+    display: grid;
+    grid-gap: 5px;
+    align-content: center;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  
+  .dropdownOptions {
+    display: grid;
+    width: 100%;
+    grid-auto-flow: column;
+  }
+  
