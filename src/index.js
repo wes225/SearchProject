@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import "./styles.css";
 import SearchMenu from "./Components/SearchMenu";
 
 function App() {
