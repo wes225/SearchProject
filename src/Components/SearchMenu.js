@@ -1,8 +1,89 @@
 import React, { Component } from "react";
 import TeamResults from "../Components/TeamResults";
 import AdvisorResults from "../Components/AdvisorResults";
-import jsonData from "../../src/data.json";
+
 import "../Components/SearchMenu.css";
+
+let jsonData = [{
+    "team": {
+      "id": "001",
+      "name": "Green Team",
+      "teamLink": "",
+      "region": "Montreal",
+      "members": [{
+          "isLead": true,
+          "id": 101,
+          "name": "John Smith",
+          "title": "Frontend developer",
+          "email": "test@testing.com",
+          "phoneNumber": "555-555-5555",
+          "linkedin": "www.linkedin.com",
+          "region": "Montreal",
+          "expertise": ["React", "Angular"]
+        },
+        {
+          "isLead": false,
+          "id": 102,
+          "name": "Alex Smith",
+          "title": "Backend Developer",
+          "email": "test@testing.com",
+          "phoneNumber": "555-555-5555",
+          "linkedin": "www.linkedin.com",
+          "region": "Montreal",
+          "expertise": ["NodeJS", "php"]
+        }, {
+          "isLead": false,
+          "id": 103,
+          "name": "Morgan Smith",
+          "title": "Fullstack Developer",
+          "email": "test@testing.com",
+          "phoneNumber": "555-555-5555",
+          "linkedin": "www.linkedin.com",
+          "region": "Longueil",
+          "expertise": ["React", "NodeJS"]
+        }
+      ]
+    }
+  },
+  {
+    "team": {
+      "id": "002",
+      "name": "Blue Team",
+      "teamLink": "",
+      "region": "Lasalle",
+      "members": [{
+        "isLead": true,
+        "id": 104,
+        "name": "Michael Smith",
+        "title": "Mobile Developer",
+        "email": "test@testing.com",
+        "phoneNumber": "555-555-5555",
+        "linkedin": "www.linkedin.com",
+        "region": "Lasalle",
+        "expertise": ["Swift"]
+      }]
+    }
+  },
+  {
+    "team": {
+      "id": "003",
+      "name": "Red team",
+      "teamLink": "",
+      "region": "Levis",
+      "members": [{
+        "isLead": true,
+        "id": 105,
+        "name": "Mathew Smith",
+        "title": "QA Developer",
+        "email": "test@testing.com",
+        "phoneNumber": "555-555-5555",
+        "linkedin": "www.linkedin.com",
+        "region": "Levis",
+        "expertise": ["Selenium"]
+      }]
+    }
+  }
+]
 export default class SearchMenu extends Component {
   constructor(props) {
     super(props);
